@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Base layout sizing */
+html, body, #root {
+  height: 100%;
+}
+
+/* Light/Dark color scheme hint */
+:root {
+  color-scheme: light dark;
+}
+
+/* App backdrop and base typography */
+body {
+  /* Soft gradient background; dark mode gets deep bluish tones */
+  @apply antialiased bg-gradient-to-br from-slate-100 to-slate-200 dark:from-[#070b13] dark:to-[#0b1220] text-gray-900 dark:text-gray-100;
+}
+
+/* Glass morphism helpers */
+.glass-dark {
+  /* Dark translucent glass for chat panel */
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)];
+}
+
+.glass-light {
+  /* Light translucent glass for right side (sheet/diagrams) */
+  @apply bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)];
+}
+
+/* Uniform header surface for right panel (inside glass-light) */
+.header-glass {
+  @apply bg-white/60 backdrop-blur-md border-b border-white/30;
+}
+
+/* Buttons: subtle glow */
+.btn-glow {
+  @apply transition-shadow duration-200 shadow-sm hover:shadow-[0_0_16px_rgba(99,102,241,0.55)] ring-1 ring-indigo-300/30 hover:ring-indigo-400/60 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:shadow-[0_0_18px_rgba(99,102,241,0.65)];
+}
+.btn-soft {
+  @apply rounded-md px-3 py-2;
+}
+
+/* Tabs */
+.tab-btn {
+  @apply text-xs px-3 py-1 rounded-md;
+}
+
+/* Inputs for dark chat panel */
+.input-dark-glass {
+  @apply bg-white/10 text-white placeholder:text-white/60 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400/40;
+}
