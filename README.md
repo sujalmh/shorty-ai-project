@@ -2,6 +2,14 @@
 
 ## Overview
 
+[![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat-square)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=flat-square)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white&style=flat-square)](https://vitejs.dev/)
+[![AG Grid](https://img.shields.io/badge/AG--Grid-000000?logo=ag--grid&logoColor=white&style=flat-square)](https://www.ag-grid.com/)
+[![Plotly](https://img.shields.io/badge/-Plotly-326FEA?logo=plotly&logoColor=white&style=flat-square)](https://plotly.com/javascript/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This project is an AI-powered spreadsheet application designed to provide an interactive and intuitive user experience for data analysis and manipulation. It features a conversational AI interface that allows users to perform complex operations on their data using natural language, along with a robust data grid and charting capabilities.
 
 ## Features
@@ -40,6 +48,24 @@ The frontend boasts a clean, professional, and cohesive design system with a mod
 - **Glass Morphism**: Dark effect for the chat panel, light effect for the sheet/diagrams area, providing depth and elegance.
 - **Custom Scrollbars**: Improved aesthetics for scrollable areas.
 - **AG Grid Theming**: Fully customized to integrate seamlessly with the application's visual language, including intelligent row highlighting.
+
+## Application Architecture
+
+```mermaid
+C4Context
+    title System Context for AI Excel Application
+
+    Person(user, "User", "Uses the AI Excel application to analyze and manipulate data.")
+
+    System(frontend, "Frontend Application", "React/TypeScript application with AG Grid and Plotly for interactive data display and charting. Implements a modern glass morphism design system.")
+    System(backend, "Backend Services", "Python-based API for data management, spreadsheet operations, and AI integration.")
+    System_Ext(ai_service, "AI Service / LLM", "External or internal service providing natural language processing and action inference capabilities.")
+
+    Rel(user, frontend, "Interacts with", "Uses Web Browser")
+    Rel(frontend, backend, "Communicates with", "REST API (Axios)")
+    Rel(backend, ai_service, "Delegates AI tasks to", "API Calls")
+    Rel(backend, frontend, "Sends data and AI responses to", "JSON via REST API")
+```
 
 ## Technologies Used
 
