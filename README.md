@@ -2,6 +2,8 @@
 
 ## Overview
 
+[![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/-FastAPI-009688?logo=fastapi&logoColor=white&style=flat-square)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat-square)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=flat-square)](https://tailwindcss.com/)
@@ -79,8 +81,8 @@ C4Context
 - **Axios**: Promise-based HTTP client.
 
 ### Backend
-*(Note: Details for the backend are assumed based on common AI/data service patterns, as backend files were not explicitly reviewed for this README generation unless previously provided.)*
-- Python (likely FastAPI or Flask for API)
+- **Python**: Core programming language for backend services.
+- **FastAPI**: Modern, fast (high-performance) web framework for building APIs with Python.
 - Data processing libraries (e.g., Pandas for spreadsheet operations)
 - AI/ML libraries (e.g., for natural language processing and action inference)
 
