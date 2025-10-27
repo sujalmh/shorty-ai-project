@@ -15,10 +15,12 @@ type Props = {
 export default function DiagramGallery({ plots, onClosePlot }: Props) {
   return (
     <div className="h-full w-full flex flex-col min-h-0">
-      <div className="flex-1 min-h-0 overflow-y-auto p-2 space-y-2">
+      <div className="flex-1 min-h-0 overflow-y-auto space-y-4 custom-scrollbar">
         {plots.length === 0 ? (
-          <div className="text-sm text-gray-600 p-3">
-            No diagrams yet. Ask in chat e.g. "pie chart of revenue by region".
+          <div className="text-center p-8">
+            <div className="text-gray-500 text-sm">
+              No diagrams yet. Ask in chat, e.g., "pie chart of revenue by region".
+            </div>
           </div>
         ) : (
           plots.map((p) => (

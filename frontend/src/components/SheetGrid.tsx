@@ -163,12 +163,12 @@ export default function SheetGrid({ reloadToken, highlightedRows, onRefetch }: P
 
   return (
     <div className="h-full w-full flex flex-col">
-      <div className="sticky top-0 z-10 header-glass px-3 py-2 space-y-2">
-        {/* Row 1: Import + manual edits */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium">Data:</span>
+      <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-md rounded-lg border-b border-gray-200/60 px-4 py-3 space-y-3">
+        {/* Row 1: Import + Data Operations */}
+        <div className="flex items-center flex-wrap gap-2">
+          <span className="text-sm font-semibold text-gray-700">Data:</span>
           <button
-            className="btn-soft btn-glow bg-white hover:bg-slate-50 text-gray-700 text-sm disabled:opacity-50"
+            className="btn-secondary"
             onClick={onPickCsv}
             disabled={importBusy}
             title="Import CSV"
@@ -176,7 +176,7 @@ export default function SheetGrid({ reloadToken, highlightedRows, onRefetch }: P
             {importBusy ? "Importing..." : "Import CSV"}
           </button>
           <button
-            className="btn-soft btn-glow bg-white hover:bg-slate-50 text-gray-700 text-sm disabled:opacity-50"
+            className="btn-secondary"
             onClick={onPickExcel}
             disabled={importBusy}
             title="Import Excel"
@@ -186,9 +186,10 @@ export default function SheetGrid({ reloadToken, highlightedRows, onRefetch }: P
           <input ref={csvInputRef} type="file" accept=".csv,text/csv" className="hidden" onChange={onCsvChange} />
           <input ref={excelInputRef} type="file" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" className="hidden" onChange={onExcelChange} />
 
-          <div className="mx-2 h-5 w-px bg-gray-300 dark:bg-gray-700" />
+          <div className="divider-vertical" />
+          
           <button
-            className="btn-soft btn-glow bg-white hover:bg-slate-50 text-gray-700 text-sm disabled:opacity-50"
+            className="btn-secondary"
             onClick={handleAddRow}
             disabled={busy}
             title="Append empty row"
@@ -198,39 +199,39 @@ export default function SheetGrid({ reloadToken, highlightedRows, onRefetch }: P
 
           <div className="flex items-center gap-2">
             <input
-              className="px-2 py-1 text-sm rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/40 bg-white text-gray-900"
-              placeholder="new column name"
+              className="input-light w-40"
+              placeholder="Column name"
               value={newEmptyCol}
               onChange={(e) => setNewEmptyCol(e.target.value)}
             />
             <button
-              className="btn-soft btn-glow bg-white hover:bg-slate-50 text-gray-700 text-sm disabled:opacity-50"
+              className="btn-secondary"
               onClick={handleAddEmptyColumn}
               disabled={busy}
               title="Add empty column"
             >
-              Add Empty Column
+              Add Column
             </button>
           </div>
         </div>
 
         {/* Row 2: Add computed column */}
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium">Add Column:</span>
+          <span className="text-sm font-semibold text-gray-700">Computed Column:</span>
           <input
-            className="px-2 py-1 text-sm rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/40 bg-white text-gray-900"
-            placeholder="name"
+            className="input-light w-32"
+            placeholder="Name"
             value={newColName}
             onChange={(e) => setNewColName(e.target.value)}
           />
           <input
-            className="px-2 py-1 text-sm rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/40 bg-white text-gray-900 flex-1"
-            placeholder="expression e.g. revenue - cost"
+            className="input-light flex-1"
+            placeholder="Expression (e.g., revenue - cost)"
             value={newColExpr}
             onChange={(e) => setNewColExpr(e.target.value)}
           />
           <button
-            className="btn-soft btn-glow bg-indigo-600 text-white text-sm rounded disabled:opacity-50"
+            className="btn-primary"
             onClick={handleAddColumn}
             disabled={busy}
           >
@@ -238,7 +239,7 @@ export default function SheetGrid({ reloadToken, highlightedRows, onRefetch }: P
           </button>
         </div>
       </div>
-      <div className="ag-theme-quartz flex-1 min-h-0" role="region" aria-label="Spreadsheet grid" style={{ width: "100%", height: "100%" }}>
+      <div className="ag-theme-quartz flex-1 min-h-0 custom-scrollbar" role="region" aria-label="Spreadsheet grid" style={{ width: "100%", height: "100%" }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={columnDefs}

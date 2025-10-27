@@ -8,44 +8,218 @@ html, body, #root {
 /* Light/Dark color scheme hint */
 :root {
   color-scheme: light dark;
+  
+  /* Design System Color Tokens */
+  --color-primary: 79 70 229; /* indigo-600 */
+  --color-primary-hover: 67 56 202; /* indigo-700 */
+  --color-secondary: 71 85 105; /* slate-600 */
+  --color-accent: 59 130 246; /* blue-500 */
+  --color-success: 16 185 129; /* emerald-500 */
+  --color-warning: 245 158 11; /* amber-500 */
+  --color-error: 239 68 68; /* red-500 */
+  
+  /* Spacing tokens */
+  --spacing-component: 0.75rem; /* 12px */
+  --spacing-container: 1rem; /* 16px */
+  --spacing-element: 0.5rem; /* 8px */
+  
+  /* Border radius */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
 /* App backdrop and base typography */
 body {
   /* Soft gradient background; dark mode gets deep bluish tones */
-  @apply antialiased bg-gradient-to-br from-slate-100 to-slate-200 dark:from-[#070b13] dark:to-[#0b1220] text-gray-900 dark:text-gray-100;
+  @apply antialiased bg-gradient-to-br from-slate-50 to-slate-100 dark:from-[#070b13] dark:to-[#0b1220] text-gray-900 dark:text-gray-100;
 }
 
 /* Glass morphism helpers */
 .glass-dark {
   /* Dark translucent glass for chat panel */
-  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)];
+  @apply bg-gradient-to-br from-slate-900/40 to-slate-800/30 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)];
 }
 
 .glass-light {
   /* Light translucent glass for right side (sheet/diagrams) */
-  @apply bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)];
+  @apply bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)];
 }
 
 /* Uniform header surface for right panel (inside glass-light) */
 .header-glass {
-  @apply bg-white/60 backdrop-blur-md border-b border-white/30;
+  @apply bg-white/70 backdrop-blur-md border-b border-gray-200/60;
 }
 
-/* Buttons: subtle glow */
+/* Standardized Button Styles */
+.btn-primary {
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500 shadow-sm hover:shadow-md active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-indigo-500 shadow-sm hover:shadow-md active:scale-[0.98];
+}
+
+.btn-tertiary {
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-transparent text-gray-700 border border-gray-300 hover:bg-white/50 focus:ring-indigo-500 active:scale-[0.98];
+}
+
+.btn-ghost {
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-white/10 text-white border border-white/20 hover:bg-white/20 focus:ring-indigo-400 active:scale-[0.98];
+}
+
+.btn-danger {
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm hover:shadow-md active:scale-[0.98];
+}
+
+/* Legacy button styles for gradual migration */
 .btn-glow {
-  @apply transition-shadow duration-200 shadow-sm hover:shadow-[0_0_16px_rgba(99,102,241,0.55)] ring-1 ring-indigo-300/30 hover:ring-indigo-400/60 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:shadow-[0_0_18px_rgba(99,102,241,0.65)];
+  @apply transition-shadow duration-200 shadow-sm hover:shadow-[0_0_16px_rgba(99,102,241,0.4)] focus:outline-none focus:ring-2 focus:ring-indigo-500;
 }
+
 .btn-soft {
-  @apply rounded-md px-3 py-2;
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium;
 }
 
-/* Tabs */
+/* Tab Buttons */
 .tab-btn {
-  @apply text-xs px-3 py-1 rounded-md;
+  @apply h-9 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 active:scale-[0.98];
 }
 
-/* Inputs for dark chat panel */
+.tab-btn-active {
+  @apply bg-indigo-600 text-white shadow-md;
+}
+
+.tab-btn-inactive {
+  @apply bg-white/80 text-gray-700 hover:bg-white border border-gray-200;
+}
+
+/* Standardized Input Styles */
+.input-light {
+  @apply h-9 px-3 py-2 rounded-lg text-sm border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  @apply bg-white border-gray-300 text-gray-900 placeholder:text-gray-500;
+}
+
+.input-dark {
+  @apply h-9 px-3 py-2 rounded-lg text-sm border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  @apply bg-white/10 border-white/20 text-white placeholder:text-white/60;
+}
+
+/* Legacy input for gradual migration */
 .input-dark-glass {
-  @apply bg-white/10 text-white placeholder:text-white/60 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400/40;
+  @apply h-9 px-3 py-2 rounded-lg text-sm bg-white/10 text-white placeholder:text-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400;
+}
+
+/* Message Bubbles */
+.message-user {
+  @apply inline-block rounded-xl px-4 py-2 text-sm bg-indigo-600 text-white shadow-sm;
+}
+
+.message-assistant {
+  @apply inline-block rounded-xl px-4 py-2 text-sm bg-white/10 text-white border border-white/20 shadow-sm;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700;
+}
+
+/* Divider */
+.divider-vertical {
+  @apply h-5 w-px bg-gray-300 dark:bg-gray-600;
+}
+
+.divider-horizontal {
+  @apply h-px w-full bg-gray-200 dark:bg-gray-700;
+}
+
+/* AG Grid Custom Theming */
+.ag-theme-quartz {
+  --ag-background-color: transparent;
+  --ag-odd-row-background-color: rgba(248, 250, 252, 0.5);
+  --ag-header-background-color: rgba(255, 255, 255, 0.7);
+  --ag-header-foreground-color: rgb(51, 65, 85);
+  --ag-border-color: rgb(226, 232, 240);
+  --ag-row-hover-color: rgba(99, 102, 241, 0.05);
+  --ag-selected-row-background-color: rgba(99, 102, 241, 0.1);
+  --ag-cell-horizontal-border: solid rgb(241, 245, 249);
+  --ag-font-size: 14px;
+  --ag-font-family: inherit;
+  --ag-header-height: 40px;
+  --ag-row-height: 40px;
+  --ag-borders: solid 1px;
+  --ag-border-radius: 0.5rem;
+}
+
+.ag-theme-quartz .ag-root-wrapper {
+  @apply rounded-lg overflow-hidden border border-gray-200/60;
+}
+
+.ag-theme-quartz .ag-header {
+  @apply font-medium;
+}
+
+.ag-theme-quartz .ag-header-cell {
+  @apply border-r border-gray-200/40;
+}
+
+.ag-theme-quartz .ag-cell {
+  @apply border-r border-gray-100/60;
+  line-height: 40px;
+}
+
+.ag-theme-quartz .ag-row {
+  @apply transition-colors duration-150;
+}
+
+/* Highlighted rows in grid */
+.ag-theme-quartz .ag-row.bg-red-100 {
+  @apply bg-indigo-50/80 dark:bg-indigo-900/40 border-l-4 border-l-indigo-500;
+}
+
+/* Custom scrollbar for better aesthetics */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Utility classes */
+.section-spacing {
+  @apply space-y-3;
+}
+
+.inline-spacing {
+  @apply gap-2;
+}
+
+.container-padding {
+  @apply p-4;
+}
+
+.component-padding {
+  @apply p-3;
 }

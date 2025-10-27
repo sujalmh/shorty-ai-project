@@ -142,17 +142,17 @@ export default function PlotViewer({ figure, onClose, title }: Props) {
     "Chart";
 
   return (
-    <div className="mt-2 glass-light">
-      <div className="flex items-center justify-between px-3 py-2 header-glass">
-        <span className="text-sm font-medium">{headerTitle}</span>
+    <div className="bg-white/90 backdrop-blur-md rounded-lg border border-gray-200/60 shadow-md overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200/60 bg-white/70">
+        <span className="text-sm font-semibold text-gray-700">{headerTitle}</span>
         <button
-          className="text-xs btn-soft btn-glow bg-white hover:bg-slate-50 text-gray-700"
+          className="btn-secondary"
           onClick={onClose}
         >
           Close
         </button>
       </div>
-      <div className="p-2" style={{ width: "100%", height: 360 }}>
+      <div className="p-4" style={{ width: "100%", height: 360 }}>
         <div ref={ref} style={{ width: "100%", height: "100%" }} />
       </div>
     </div>

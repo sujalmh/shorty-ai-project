@@ -143,17 +143,10 @@ export default function ChatPanel({ onHighlightRows, onReloadSheet, onAddPlot }:
 
   return (
     <div className="h-full w-full flex flex-col min-h-0">
-      <div className="flex-1 overflow-y-auto p-3 space-y-3" role="log" aria-label="Chat messages">
+      <div className="flex-1 overflow-y-auto p-3 space-y-3 custom-scrollbar" role="log" aria-label="Chat messages">
         {messages.map((m, i) => (
           <div key={i} className={m.role === "user" ? "text-right" : "text-left"}>
-            <div
-              className={[
-                "inline-block rounded px-3 py-2 text-sm",
-                m.role === "user"
-                  ? "bg-blue-600 text-white"
-                  : "bg-white/10 text-white",
-              ].join(" ")}
-            >
+            <div className={m.role === "user" ? "message-user" : "message-assistant"}>
               {m.content}
             </div>
           </div>
@@ -165,10 +158,10 @@ export default function ChatPanel({ onHighlightRows, onReloadSheet, onAddPlot }:
         </div>
       </div>
 
-      <div className="p-3 border-t border-white/10 flex gap-2">
+      <div className="px-3 py-3 border-t border-white/10 flex gap-2">
         <input
           ref={inputRef}
-          className="flex-1 input-dark-glass px-3 py-2"
+          className="flex-1 input-dark"
           placeholder='Ask e.g. "add a column for profit = revenue - cost"'
           aria-label="Chat message input"
           value={input}
@@ -182,7 +175,7 @@ export default function ChatPanel({ onHighlightRows, onReloadSheet, onAddPlot }:
         />
         <button
           type="button"
-          className="btn-soft btn-glow bg-indigo-600 text-white rounded disabled:opacity-60"
+          className="btn-primary"
           onClick={() => send()}
           aria-label="Send message"
           title="Send message"
@@ -192,31 +185,31 @@ export default function ChatPanel({ onHighlightRows, onReloadSheet, onAddPlot }:
         </button>
       </div>
 
-      <div className="px-3 pb-3 pt-1 flex items-center justify-between gap-2">
+      <div className="px-3 pb-3 pt-2 flex items-center justify-between gap-3 flex-wrap">
         <div className="flex gap-2 flex-wrap">
           {quickPrompts.map((q) => (
             <button
               key={q}
-              className="btn-soft btn-glow text-xs bg-white/10 text-white hover:bg-white/15"
+              className="btn-ghost text-xs"
               onClick={() => send(q)}
-              title="Insert prompt"
+              title="Use this prompt"
             >
               {q}
             </button>
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-white/70">Mode</span>
+          <span className="text-xs text-white/70 font-medium">Mode:</span>
           <select
-            className="text-xs input-dark-glass px-2 py-1"
+            className="input-dark text-xs h-7 px-2 py-1"
             value={mode}
             onChange={(e) => setMode(e.target.value as "auto" | "llm" | "rules")}
             aria-label="Chat mode"
             title="Chat mode"
           >
-            <option value="auto">auto</option>
-            <option value="llm">llm</option>
-            <option value="rules">rules</option>
+            <option value="auto">Auto</option>
+            <option value="llm">LLM</option>
+            <option value="rules">Rules</option>
           </select>
         </div>
       </div>
