@@ -19,7 +19,7 @@ This project is an AI-powered spreadsheet application designed to provide an int
 A visual demonstration of the AI Excel application in action.
 
 **Main Interface**
-![Main Interface Screenshot](https://via.placeholder.com/1200x600?text=Application+Main+Interface)
+<img width="1911" height="985" alt="Main Interface Screenshot" src="https://github.com/user-attachments/assets/5ad3c05c-98ee-47e4-ba5d-937c72f711ce" />
 
 **Chat Interaction**
 ![Chat Interaction Screenshot](https://via.placeholder.com/600x400?text=Chat+Panel+Interaction)
