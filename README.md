@@ -19,16 +19,12 @@ This project is an AI-powered spreadsheet application designed to provide an int
 A visual demonstration of the AI Excel application in action.
 
 **Main Interface**
-<img width="1911" height="985" alt="Main Interface Screenshot" src="https://github.com/user-attachments/assets/5ad3c05c-98ee-47e4-ba5d-937c72f711ce" />
-
-**Chat Interaction**
-![Chat Interaction Screenshot](https://via.placeholder.com/600x400?text=Chat+Panel+Interaction)
-
-**Data Grid**
-![Data Grid Screenshot](https://via.placeholder.com/800x500?text=Spreadsheet+Data+Grid)
+<img width="1755" height="902" alt="Main Interface Screenshot" src="https://github.com/user-attachments/assets/2b7fedbe-8b6b-42bf-900c-0ab80141e560" />
+<img width="1919" height="767" alt="image" src="https://github.com/user-attachments/assets/f19295fc-b23b-4b66-9741-7fa70e3d90d8" />
 
 **Diagrams/Plots**
-![Diagrams/Plots Screenshot](https://via.placeholder.com/800x500?text=Generated+Diagrams)
+<img width="1755" height="902" alt="Diagrams/Plots Screenshot" src="https://github.com/user-attachments/assets/f4105f94-07c0-4770-ba56-66196d91ddbe" />
+<img width="1906" height="982" alt="Diagrams/Plots Screenshot" src="https://github.com/user-attachments/assets/ea5d286f-65d2-472c-b901-11cef7f24935" />
 
 
 ## Features
