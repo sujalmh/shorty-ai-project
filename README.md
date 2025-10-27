@@ -14,6 +14,23 @@
 
 This project is an AI-powered spreadsheet application designed to provide an interactive and intuitive user experience for data analysis and manipulation. It features a conversational AI interface that allows users to perform complex operations on their data using natural language, along with a robust data grid and charting capabilities.
 
+## Screenshots
+<!-- Add your actual screenshots here -->
+A visual demonstration of the AI Excel application in action.
+
+**Main Interface**
+![Main Interface Screenshot](https://via.placeholder.com/1200x600?text=Application+Main+Interface)
+
+**Chat Interaction**
+![Chat Interaction Screenshot](https://via.placeholder.com/600x400?text=Chat+Panel+Interaction)
+
+**Data Grid**
+![Data Grid Screenshot](https://via.placeholder.com/800x500?text=Spreadsheet+Data+Grid)
+
+**Diagrams/Plots**
+![Diagrams/Plots Screenshot](https://via.placeholder.com/800x500?text=Generated+Diagrams)
+
+
 ## Features
 
 ### Core Functionality
